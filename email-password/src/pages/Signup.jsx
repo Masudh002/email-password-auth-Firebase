@@ -38,7 +38,10 @@ const Signup = () => {
   return (
       <div className='container'>
         <div className='signup-page'>
-         <h1>Signup page</h1>
+         <h1>Signup page</h1>       
+          {message? (<p style={{ background:"pink", padding:'12px', margin:'4px', fontWeight:'bold', borderRadius:'5px'}}>
+              We Couldn't create your account  <br /> Please check your responses and try again </p>):("")
+           }
          <form className='signup-form' onSubmit={handleSubmit}>
              <input type="email"
                  placeholder='Enter Email'
