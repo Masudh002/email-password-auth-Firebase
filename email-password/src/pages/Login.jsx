@@ -8,11 +8,21 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const[message , setMessage] = useState(null);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(!password || !email){
+      setMessage("please fill in both fields above")
+      return;
+    }
+    if(password.length < 6){
+      setMessage("Error: password length is less")
+      return;
+    }
+    
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       console.log(userCredential);
@@ -22,6 +32,7 @@ const Login = () => {
       navigate("/");
     } catch (error) {
       console.error(error);
+      setMessage("An error occurred while logging in. Please try again.");
     }
   }
 
@@ -46,6 +57,7 @@ const Login = () => {
         />
         <button type="submit" className='login-button'>Login</button>
       </form>
+      <p style={{color:"red", padding:"2px"}}>{message}</p>
       <p>Need to Signup? <Link to="/signup">Create Account</Link></p>
       </div>
     </div>

@@ -7,12 +7,21 @@ import { auth } from '../firebase';
 const Signup = () => {
   const[email, setEmail]= useState( "");
   const[password, setPassword]= useState( "");
+  const [message, setMessage]= useState(null);
 
   const navigate = useNavigate();
 
   
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if( !password || !email){
+      setMessage("please fill in both fields above");
+      return;
+    }
+    if( password.length < 6){
+      setMessage("Please input atleast 6 characters password")
+      return;
+    }
     try {
       const userCredentials = await createUserWithEmailAndPassword(auth, email,password);
       console.log(userCredentials);
@@ -22,6 +31,7 @@ const Signup = () => {
       navigate("/login");
     } catch (error) {
       console.error(error);
+      setMessage("An error occurred while logging in. Please try again.")
     }
   }
 
@@ -45,6 +55,7 @@ const Signup = () => {
              />
              <button type='submit'  className='signup-btn'> Signup</button>
          </form>
+         <p style={{color:"red", padding:"2px"}}>{message}</p>
          <p className='par'>Already have an account? <Link to="/login">Login</Link> </p>
        </div>
       </div>

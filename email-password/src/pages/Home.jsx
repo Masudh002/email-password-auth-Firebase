@@ -15,9 +15,12 @@ const navigate=useNavigate();
     navigate("/login");
   }
   return (
-    <div>
+    <div style={{ display:"flex", alignItems:"center", justifyContent:'center', minHeight:'100vh'}}>
+      <div>
       <h1>React firebase authentication with Email and Password</h1>
-      <button onClick={handleLogout}> Logout</button>
+      <button style={{marginTop:'10px'}} onClick={handleLogout}> Logout</button>
+      </div>
+      
     </div>
   )
 }
