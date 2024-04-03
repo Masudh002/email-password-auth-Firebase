@@ -39,7 +39,7 @@ const Login = () => {
   return (
     <div className='container'>
        <div className='login-page'>
-      <h1>Login Page</h1>
+      <h1 style={{margin:"10px"}}>Login Page</h1>
       <form onSubmit={handleSubmit} className='login-form'>
         <input
           type="email"

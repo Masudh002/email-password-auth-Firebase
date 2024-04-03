@@ -31,14 +31,14 @@ const Signup = () => {
       navigate("/login");
     } catch (error) {
       console.error(error);
-      setMessage("An error occurred while logging in. Please try again.")
+      setMessage("An error occurred while signing up. Please try again.")
     }
   }
 
   return (
       <div className='container'>
         <div className='signup-page'>
-         <h1>Signup page</h1>       
+         <h1 style={{margin:"10px"}}>Signup page</h1>       
           {message? (<p style={{ background:"pink", padding:'12px', margin:'4px', fontWeight:'bold', borderRadius:'5px'}}>
               We Couldn't create your account  <br /> Please check your responses and try again </p>):("")
            }

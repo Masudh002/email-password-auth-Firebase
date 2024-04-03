@@ -14,7 +14,7 @@
 .signup-page ,
 .login-page{
 background-color: aliceblue;
-width: 30%;
+width: 40%;
 padding: 8px;
 border-radius: 4px;
 }
@@ -30,6 +30,17 @@ border-radius: 4px;
   margin-bottom: 10px;
   padding: 4px;
   font-size: medium;
+}
+.login-button,
+.signup-btn{
+  padding:8px; 
+  font-size: 16px;
+}
+@media(max-width:760px){
+  .signup-page ,
+  .login-page{
+  width: 80%;
+}
 }
 
 
